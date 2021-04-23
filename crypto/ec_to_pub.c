@@ -1,5 +1,5 @@
 /**
-* Ec_to_pub - Genereate Public key from private key
+* ec_to_pub - Genereate Public key from private key
 * @key : pointer to EC_Key structure
 * @pub : extracted public key
 * Return: A pointer to pub
