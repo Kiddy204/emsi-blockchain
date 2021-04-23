@@ -3,7 +3,7 @@
 /**
  * EC_create - creates returns a public private EC key
  *
- *  Return a pointer to EC_KEY structure
+ *  Return:  a pointer to EC_KEY structure
  */
 
 EC_KEY *ec_create()
