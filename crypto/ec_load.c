@@ -1,7 +1,3 @@
-#ifndef EC_LOAD_C_INCLUDED
-#define EC_LOAD_C_INCLUDED
-
-
 #include "hblk_crypto.h"
 
 /**
@@ -50,5 +46,4 @@ out:
 	return (key);
 }
 
-#endif // EC_LOAD_C_INCLUDED
 
