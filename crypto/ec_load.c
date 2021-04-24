@@ -12,37 +12,37 @@ EC_KEY *ec_load(char const *folder)
 	FILE *fp;
 
 	if (!folder)
-    {
-        fprintf(stderr, "folder param not found");
-        return (NULL);
+	{
+	fprintf(stderr, "folder param not found");
+	return (NULL);
 	}
 
 	sprintf(buf, "%s/%s", folder, PUB_FILENAME);
 	fp = fopen(buf, "r");
 	if (!fp)
-        {
-        fprintf(stderr, "no File File %s ",buf);
+	{
+		fprintf(stderr, "no File File %s ",buf);
 		return (NULL);
         }
 	if (!PEM_read_EC_PUBKEY(fp, &key, NULL, NULL))
-        {
-        fprintf(stderr, "FAIL to load PubKey ");
+	{
+		fprintf(stderr, "FAIL to load PubKey ");
 		goto out;
-        }
+	}
 	sprintf(buf, "%s/%s", folder, PRI_FILENAME);
 	fp = fopen(buf, "r");
 	if (!fp)
-        {
-        fprintf(stderr, "no File File %s ",buf);
+	{
+		fprintf(stderr, "no File File %s ",buf);
 		return (NULL);
-        }
+	}
 	if (!PEM_read_ECPrivateKey(fp, &key, NULL, NULL))
-        {
-        fprintf(stderr, "FAIL to load PvtKey ");
+	{
+		fprintf(stderr, "FAIL to load PvtKey ");
 		goto out;
-        }
+	}
 out:
-    fclose(fp);
+	fclose(fp);
 	return (key);
 }
 
