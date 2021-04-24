@@ -19,12 +19,19 @@ int ec_save(EC_KEY *key, char const *folder)
 	fp = fopen(buf, "w");
 	if (!fp)
     {
-        fprintf(stderr, "File could not be Open");
+        fprintf(stderr, "no File File %s ",buf);
         return (0);
     }
+
 	if (!PEM_write_EC_PUBKEY(fp, key))
 		goto out;
 	sprintf(buf, "%s/%s", folder, PRI_FILENAME);
+   	fp = fopen(buf, "w");
+    if (!fp)
+    {
+        fprintf(stderr, "no File %s",buf);
+        return (0);
+    }
 	if (!PEM_write_ECPrivateKey(fp, key, NULL, NULL, 0, NULL, NULL))
 		goto out;
 	fclose(fp);
