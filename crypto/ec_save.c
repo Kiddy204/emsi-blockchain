@@ -18,10 +18,10 @@ int ec_save(EC_KEY *key, char const *folder)
 	sprintf(buf, "%s/%s", folder, PUB_FILENAME);
 	fp = fopen(buf, "w");
 	if (!fp)
-    {
-        fprintf(stderr, "File could not be Open");
-        return (0);
-    }
+	{
+		fprintf(stderr, "File could not be Open");
+		return (0);
+	}
 	if (!PEM_write_EC_PUBKEY(fp, key))
 		goto out;
 	sprintf(buf, "%s/%s", folder, PRI_FILENAME);
@@ -30,7 +30,7 @@ int ec_save(EC_KEY *key, char const *folder)
 	fclose(fp);
 	return (1);
 out:
-    fprintf(stderr, "EC_save FAIL");
+	fprintf(stderr, "EC_save FAIL");
 	fclose(fp);
 	return (0);
 }
