@@ -21,9 +21,9 @@ EC_KEY *ec_load(char const *folder)
 	fp = fopen(buf, "r");
 	if (!fp)
 	{
-		fprintf(stderr, "no File File %s ",buf);
+		fprintf(stderr, "no File File %s ", buf);
 		return (NULL);
-        }
+	}
 	if (!PEM_read_EC_PUBKEY(fp, &key, NULL, NULL))
 	{
 		fprintf(stderr, "FAIL to load PubKey ");
@@ -33,7 +33,7 @@ EC_KEY *ec_load(char const *folder)
 	fp = fopen(buf, "r");
 	if (!fp)
 	{
-		fprintf(stderr, "no File File %s ",buf);
+		fprintf(stderr, "no File File %s ", buf);
 		return (NULL);
 	}
 	if (!PEM_read_ECPrivateKey(fp, &key, NULL, NULL))
