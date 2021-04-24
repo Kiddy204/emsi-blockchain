@@ -13,7 +13,7 @@ EC_KEY *ec_create()
 	key = EC_KEY_new_by_curve_name(EC_CURVE);
 	if (!key)
 	{
-		fprintf(stderr, "EC Curve was not² successfully generated");
+		fprintf(stderr, "EC Curve was not successfully generated");
 		return (NULL);
 	}
 	/*Generate Public and private Keys*/
