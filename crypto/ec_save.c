@@ -18,13 +18,27 @@ int ec_save(EC_KEY *key, char const *folder)
 	sprintf(buf, "%s/%s", folder, PUB_FILENAME);
 	fp = fopen(buf, "w");
 	if (!fp)
+<<<<<<< HEAD
 	{
 		fprintf(stderr, "File could not be Open");
 		return (0);
 	}
+=======
+    {
+        fprintf(stderr, "no File File %s ",buf);
+        return (0);
+    }
+
+>>>>>>> c6ad098bf58cdfe7e189332934958c31c0e18a03
 	if (!PEM_write_EC_PUBKEY(fp, key))
 		goto out;
 	sprintf(buf, "%s/%s", folder, PRI_FILENAME);
+   	fp = fopen(buf, "w");
+    if (!fp)
+    {
+        fprintf(stderr, "no File %s",buf);
+        return (0);
+    }
 	if (!PEM_write_ECPrivateKey(fp, key, NULL, NULL, 0, NULL, NULL))
 		goto out;
 	fclose(fp);
