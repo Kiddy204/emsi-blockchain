@@ -1,10 +1,3 @@
-Resources
-
-Read or watch:
-
-    OpenSSL crypto library
-    Provided libraries and sources
-
 Learning Objectives
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
