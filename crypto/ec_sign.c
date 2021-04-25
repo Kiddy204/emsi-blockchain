@@ -1,4 +1,5 @@
 #include "hblk_crypto.h"
+#include "sha256.c"
 /**
  *ec_sign - signs a given set of bytes, using a given EC_KEY private key
  *@key: points to the EC_KEY structure containing
@@ -12,7 +13,8 @@ uint8_t *ec_sign(EC_KEY const *key,
 		uint8_t const *msg, size_t msglen, sig_t *sig)
 {
 	unsigned char md[SHA256_DIGEST_LENGTH];
-    fprintf(stderr, "EC_SIGN TROUBLESHOOTING");
+	int8_t* const new_msg = (int8_t*) msg;
+    fprintf(stderr, " EC_SIGN_TROUBLESHOOTING");
 
 	if (!key || !msg || !sig)
 	{
@@ -24,9 +26,9 @@ uint8_t *ec_sign(EC_KEY const *key,
 		fprintf(stderr, " Key check Failed");
 		return (NULL);
 	}
-	if (!sha256(msg, msglen, md))
+	if (!sha256(new_msg, msglen, md))
 	{
-		fprintf(stderr, " SHA256 Error");
+		fprintf(stderr, " sha256 Error");
 		return (NULL);
 	}
 	sig->len = ECDSA_size(key);
@@ -35,14 +37,12 @@ uint8_t *ec_sign(EC_KEY const *key,
 	fprintf(stderr, " ECDA_size Error");
 	return (NULL);
 	}
-	if (!ECDSA_sign(EC_CURVE, md, SHA256_DIGEST_LENGTH, sig->sig,
+	if (!ECDSA_sign(0, md, SHA256_DIGEST_LENGTH, sig->sig,
 		(unsigned int *)&(sig->len), (EC_KEY *)key))
 	{
 		fprintf(stderr, " ECDA_size Error");
 		return (NULL);
 	}
-    fprintf(stderr, "msg : %s",msg);
 	return (sig->sig);
 
 }
-
