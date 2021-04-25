@@ -26,9 +26,9 @@ uint8_t *ec_sign(EC_KEY const *key,
         fflush(stderr);
 		return (NULL);
 	}
-	if (!SHA256(msg, msglen, md))
+	if (!sha256(msg, msglen, md))
 	{
-		fprintf(stderr, " SHA256 Error");
+		fprintf(stderr, " sha256 Error");
 		return (NULL);
 	}
 	sig->len = ECDSA_size(key);
