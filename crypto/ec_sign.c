@@ -15,7 +15,6 @@ uint8_t *ec_sign(EC_KEY const *key,
 	unsigned char md[SHA256_DIGEST_LENGTH];
 	int8_t* const new_msg = (int8_t*) msg;
 
-    fprintf(stderr, "Test stderr");
 	if (!key || !msg || !sig)
 	{
 		fprintf(stderr, "params check failed");
@@ -40,7 +39,7 @@ uint8_t *ec_sign(EC_KEY const *key,
     fflush(stderr);
 	return (NULL);
 	}
-	if (!ECDSA_sign(EC_CURVE, md, SHA256_DIGEST_LENGTH, sig->sig,
+	if (!ECDSA_sign(0, md, SHA256_DIGEST_LENGTH, sig->sig,
 		(unsigned int *)&(sig->len), (EC_KEY *)key))
 	{
 		fprintf(stderr, " ECDA_size Error");
