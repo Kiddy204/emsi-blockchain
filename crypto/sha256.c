@@ -12,6 +12,7 @@ uint8_t *sha256(int8_t const *s, size_t len,
 		uint8_t digest[SHA256_DIGEST_LENGTH])
 {
 	if (!s || !digest)
+        fprintf(stderr," SHA256  FAIL  s or digest not provided");
 		return (NULL);
 	return (SHA256((const unsigned char *)s, len, digest));
 }
