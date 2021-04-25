@@ -1,4 +1,5 @@
 #include "hblk_crypto.h"
+#include "sha256.c"
 /**
  *ec_sign - signs a given set of bytes, using a given EC_KEY private key
  *@key: points to the EC_KEY structure containing
