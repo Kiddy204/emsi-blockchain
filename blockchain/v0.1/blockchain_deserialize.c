@@ -4,10 +4,10 @@
 #define CLEAN_UP_BLOCKS (free(block), llist_destroy(list, 1, NULL))
 #define CHECK_ENDIAN(x) (endianness ? SWAPENDIAN(x) : (void)0)
 /**
-* blockchain_deserialize - deserializes a blockchain from a file
-* @path: path to file containing serialized blockchain
-* Return: pointer to deserialized blockchain or NULL
-*/
+ * blockchain_deserialize - deserializes blockchain from file
+ * @path: path to serialized blockchain file
+ * Return: pointer to deserialized blockchain or null
+ */
 blockchain_t *blockchain_deserialize(char const *path)
 {
 	int fd;
@@ -44,12 +44,12 @@ blockchain_t *blockchain_deserialize(char const *path)
 }
 
 /**
-* deserialize_blocks - deserializes all blocks in file
-* @fd: open fd to save file
-* @size: number of blocks in the file
-* @endianness: if endianess recquires switching
-* Return: pointer to list of blocks or NULL
-*/
+ * deserialize_blocks - deserializes all the blocks in the file
+ * @fd: open fd to save file
+ * @size: number of blocks in the file
+ * @endianness: if endianess needs switching
+ * Return: pointer to list of blocks or NULL
+ */
 llist_t *deserialize_blocks(int fd, uint32_t size, uint8_t endianness)
 {
 	block_t *block;
@@ -82,3 +82,4 @@ llist_t *deserialize_blocks(int fd, uint32_t size, uint8_t endianness)
 	}
 	return (list);
 }
+
