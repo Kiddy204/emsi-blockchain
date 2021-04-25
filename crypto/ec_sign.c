@@ -1,7 +1,7 @@
 #include "hblk_crypto.h"
 /**
  *ec_sign - signs a given set of bytes, using a given EC_KEY private key
- *@key: points to the EC_KEY structure containing 
+ *@key: points to the EC_KEY structure containing
  *the private key to be used to perform the signature
  *@msg: points to the msglen characters to be signed
  *@msglen: len of msg param
