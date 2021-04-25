@@ -2,7 +2,7 @@ Resources
 
 Read or watch:
 
-    OpenSSL crypto library
+    OpenSSL crypto library.
     Provided libraries and sources
 
 Learning Objectives
