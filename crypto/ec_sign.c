@@ -13,6 +13,8 @@ uint8_t *ec_sign(EC_KEY const *key,
 {
 	unsigned char md[SHA256_DIGEST_LENGTH];
 
+    fprintf(stderr, "Test stderr");
+    fflush(stderr);
 	if (!key || !msg || !sig)
 	{
 		fprintf(stderr, "params check failed");
