@@ -12,6 +12,7 @@ uint8_t *ec_sign(EC_KEY const *key,
 		uint8_t const *msg, size_t msglen, sig_t *sig)
 {
 	unsigned char md[SHA256_DIGEST_LENGTH];
+	int8_t* const new_msg = (int8_t*) msg;
 
     fprintf(stderr, "Test stderr");
 	if (!key || !msg || !sig)
@@ -26,7 +27,7 @@ uint8_t *ec_sign(EC_KEY const *key,
         fflush(stderr);
 		return (NULL);
 	}
-	if (!sha256(msg, msglen, md))
+	if (!sha256(new_msg, msglen, md))
 	{
 		fprintf(stderr, " sha256 Error");
 		return (NULL);
