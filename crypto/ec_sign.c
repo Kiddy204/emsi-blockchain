@@ -14,7 +14,6 @@ uint8_t *ec_sign(EC_KEY const *key,
 {
 	unsigned char md[SHA256_DIGEST_LENGTH];
 	int8_t* const new_msg = (int8_t*) msg;
-    fprintf(stderr, " EC_SIGN_TROUBLESHOOTING");
 
 	if (!key || !msg || !sig)
 	{
@@ -43,6 +42,23 @@ uint8_t *ec_sign(EC_KEY const *key,
 		fprintf(stderr, " ECDA_size Error");
 		return (NULL);
 	}
-	return (sig->sig);
+	fprintf(stderr, "EC_SIGN EXIT STATUS \nmsg:  ");
+	fprintf("%s ___", msg);
+	_print_string_buffer(msg, msglen);
+	fprintf(stderr, "\n");
+	fprintf(stderr, "digested msg: ");
+	printf("%s",md);
+	fprintf(stderr, "\n");
+	fprintf(stderr, "The signature : ");
+	printf("%d", (sig->sig));
+	fprintf(stderr, "\n");
+	fprintf(stderr, "The signature buffer: ");
+	_print_hex_buffer(sig->sig, SIG_MAX_LEN);
+	fprintf(stderr, "\n");
+	fprintf(stderr, "The length of the signature after: ");
+	printf("%d",sig->len);
+	fprintf(stderr, "\n");
+   	return (sig->sig);
+
 
 }
