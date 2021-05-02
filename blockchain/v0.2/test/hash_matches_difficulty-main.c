@@ -67,6 +67,8 @@ int main(void)
     difficulty = 10;
     test_hash_matches_difficulty(hash, difficulty);
 
+
+
     return (EXIT_SUCCESS);
 }
 
