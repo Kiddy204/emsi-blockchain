@@ -1,5 +1,4 @@
 #include "blockchain.h"
-
 /**
 * block_is_valid - verifies validity of a block
 * @block: pointer to Block to check
