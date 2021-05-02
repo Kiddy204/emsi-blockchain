@@ -25,22 +25,19 @@ uint32_t get_difficulty(uint8_t const hash[SHA256_DIGEST_LENGTH])
 	uint8_t *ptr;
 
 	ptr = (uint8_t *)hash;
-	fprintf(stderr, "\nGET DIFFICULTY\n");
 	uint32_t difficulty = 0;
 
 	while (ptr < hash + SHA256_DIGEST_LENGTH)
 	{
 		for (int i = 7; i >= 0; i--)
 		{
-			if (*ptr <= power(2, i) - 1)
+			/*if (*ptr <= power(2, i) - 1)
 			{
 				difficulty++;
-			}
-			else
-			{
-				fprintf(stderr, "diff : %d \n", difficulty);
+			}*/
+			if ((*ptr >> i) & 1)
 				return (difficulty);
-			}
+			return (difficulty);
 		}
 		ptr++;
 	}
