@@ -32,5 +32,5 @@ int hash_matches_difficulty(uint8_t const hash[SHA256_DIGEST_LENGTH], uint32_t d
 {
 	if (!hash)
 		return (0);
-	return  (get_difficulty(hash)==difficulty);
+	return  (get_difficulty(hash)>=difficulty);
 }
