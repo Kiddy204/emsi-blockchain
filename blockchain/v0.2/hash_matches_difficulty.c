@@ -2,7 +2,7 @@
 /**
  * power - power functon
  * @base: base
- *@exponent: exponent 
+ *@exponent: exponent
  * Return: base ^ expoenent
  */
 int power(int base, int exponent)
@@ -31,13 +31,16 @@ uint32_t get_difficulty(uint8_t const hash[SHA256_DIGEST_LENGTH])
 	{
 		for (int i = 7; i >= 0; i--)
 		{
-			/*if (*ptr <= power(2, i) - 1)
+			if (*ptr <= power(2, i) - 1)
 			{
 				difficulty++;
-			}*/
-			if ((*ptr >> i) & 1)
+			}
+			/*
+			*if ((*ptr >> i) & 1)
+			*	return (difficulty);
+			*/
+			else
 				return (difficulty);
-			return (difficulty);
 		}
 		ptr++;
 	}
