@@ -125,4 +125,5 @@ blockchain_t *blockchain_deserialize(char const *path);
 llist_t *deserialize_blocks(int fd, uint32_t size, uint8_t endianness);
 int hash_matches_difficulty(uint8_t const hash[SHA256_DIGEST_LENGTH], uint32_t difficulty);
 int block_is_valid(block_t const *block, block_t const *prev_block);
+void block_mine(block_t *block);
 #endif
