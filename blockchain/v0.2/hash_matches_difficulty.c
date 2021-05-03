@@ -9,6 +9,7 @@ int power(int base, int exponent)
 {
 	int result = 1;
 	int i;
+	
 	for ( i = exponent; i > 0; i--)
 	{
 		result = result * base;
@@ -23,14 +24,13 @@ int power(int base, int exponent)
 uint32_t get_difficulty(uint8_t const hash[SHA256_DIGEST_LENGTH])
 {
 	uint8_t *ptr;
-
+	int i;
 	ptr = (uint8_t *)hash;
 	uint32_t difficulty;
 	difficulty = 0;
 
 	while (ptr < hash + SHA256_DIGEST_LENGTH)
 	{
-		int i;
 
 		for (i = 7; i >= 0; i--)
 		{
