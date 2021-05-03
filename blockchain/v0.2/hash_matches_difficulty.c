@@ -9,8 +9,9 @@ int power(int base, int exponent)
 {
 	int result = 1;
 	int i;
+	i = exponent;
 	
-	for ( i = exponent; i > 0; i--)
+	for (; i > 0; i--)
 	{
 		result = result * base;
 	}
