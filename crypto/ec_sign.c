@@ -43,14 +43,14 @@ uint8_t *ec_sign(EC_KEY const *key,
 		return (NULL);
 	}
 	fprintf(stderr, "EC_SIGN EXIT STATUS \nmsg:  ");
-	fprintf("%s ___", msg);
+	fprintf("%s ___", *msg);
 	_print_string_buffer(msg, msglen);
 	fprintf(stderr, "\n");
 	fprintf(stderr, "digested msg: ");
-	printf("%s",md);
+	printf("%u",md);
 	fprintf(stderr, "\n");
 	fprintf(stderr, "The signature : ");
-	printf("%d", (sig->sig));
+	printf("0x%02x", (sig->sig));
 	fprintf(stderr, "\n");
 	fprintf(stderr, "The signature buffer: ");
 	_print_hex_buffer(sig->sig, SIG_MAX_LEN);

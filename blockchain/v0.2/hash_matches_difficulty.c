@@ -1,11 +1,12 @@
 #include"blockchain.h"
+#include <math.h>
 /**
  * power - power functon
  * @base: base
  *@exponent: exponent
  * Return: base ^ expoenent
  */
-int power(int base, int exponent)
+/*int power(int base, int exponent)
 {
 	int result = 1;
 	int i;
@@ -17,6 +18,7 @@ int power(int base, int exponent)
 	}
 	return (result);
 }
+*/
 /**
  * get_difficulty - serialze hash and determines difficulty
  * @hash: hash buffer
@@ -29,13 +31,13 @@ uint32_t get_difficulty(uint8_t const hash[SHA256_DIGEST_LENGTH])
 	ptr = (uint8_t *)hash;
 	uint32_t difficulty;
 	difficulty = 0;
-
+	
 	while (ptr < hash + SHA256_DIGEST_LENGTH)
 	{
 
 		for (i = 7; i >= 0; i--)
 		{
-			if (*ptr <= power(2, i) - 1)
+			if (*ptr <= pow(2, i) - 1)
 			{
 				difficulty++;
 			}
