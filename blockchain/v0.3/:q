@@ -1,0 +1,17 @@
+#include"blockchain.h"
+
+int hash_matches_difficulty(uint8_t const hash[SHA256_DIGEST_LENGTH], uint32_t difficulty)
+{
+	uint32_t cptr = 0;
+	while(hash[cptr] == 0){
+	cptr++;
+	}
+	fprintf(stdout,"Difficulty Test");
+	if(cptr == difficulty){
+		fprintf(stdout,"Difficulty Match");
+		return 1;
+	}
+	fprintf(stdout,"Difficulty Match")
+	fflush(stdout);
+	return 0;
+}
